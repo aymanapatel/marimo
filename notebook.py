@@ -88,18 +88,49 @@ def _(mo):
 
 
 @app.cell(hide_code=True)
-def _(mo):
+def _(button, date, editor, mo, slider):
+    # slider = mo.ui.slider(start=1, stop=20, label="Slider", value=3)
+    # date = mo.ui.date("2022-02-01")
+    # button = mo.ui.button(
+    #     value=0,
+    #     label="increment",
+    #     on_click=lambda value: value+1)
+    # initial_code = """
+    # const a: number;
+    # console.log("Hello world")
+    # """
+
+    # editor = mo.ui.code_editor(
+    #     value=initial_code,
+    #     language="typescript"
+    # )
+
+
     mo.md(
-        """
-        ## 4. Running notebooks as apps
+        f"""
+            # Welcome to Marimo! 🌊🍃
+            Marimo allows to define UI elements.
+            ## Example: Slider
+            Interact with UI elements, like this slider. Check below the interactive part; rendering the appropriate number of 🍃's when slider is moved.:
+            <br/>
+            {slider}
+            {"##" + "🍃" * slider.value}
+            ----
+            ## Example: Date componeny
 
-        marimo notebooks can double as apps. Click the app window icon in the
-        bottom-right to see this notebook in "app view."
+            {date}
 
-        Serve a notebook as an app with `marimo run` at the command-line.
-        Of course, you can use marimo just to level-up your
-        notebooking, without ever making apps.
-        """
+            ----
+            ## Example: Button component
+
+            {button}
+
+            Value: {button.value}
+
+            ## Example: Editor
+
+            {editor}
+            """
     )
     return
 
